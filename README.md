@@ -1,17 +1,17 @@
-# macros_example_json
 
-A new Flutter project.
+```dart
+import 'data_class_macros.dart';
 
-## Getting Started
+@DataClass()
+class User {
+  final String name;
+  final int age;
+  final int number;
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# dart_data_class
+  const User({
+    required this.name,
+    required this.age,
+    required this.number,
+  });
+}
+```
