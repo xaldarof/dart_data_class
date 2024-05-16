@@ -5,26 +5,25 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
+import 'package:dart_data_class/data_class_macros.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:macros_example_json/main.dart';
+@DataClass()
+class User {
+  final int age;
+  final String name;
+
+  const User({
+    required this.age,
+    required this.name,
+  });
+}
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  const user = User(age: 15, name: "User");
+  final newUser = user.copyWith(age: 16);
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('test data class methods', () {
+    equals(user.age == 16);
   });
 }

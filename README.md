@@ -1,5 +1,7 @@
 
 ```dart
+Also visit: https://dart.dev/language/macros
+
 import 'data_class_macros.dart';
 
 @DataClass()
